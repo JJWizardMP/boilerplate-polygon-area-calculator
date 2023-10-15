@@ -22,22 +22,23 @@ class Rectangle:
   def get_picture(self):
     if self.width > 50 or self.height > 50:
       return "Too big for picture."
-    return "".join("*" * self.width + '\n' for _ in range(self.height))
+    return ("*" * self.width + '\n') * (self.height)
 
   def get_amount_inside(self, shape):
     return (self.width // shape.width) * (self.height // shape.height)
 
   def __str__(self):
-    return "Rectangle(width={0}, height={1})".format(self.width, self.height)
+    return f"Rectangle(width={self.width}, height={self.height})"
+
 
 class Square(Rectangle):
-  
+
   def __init__(self, side):
     super().__init__(side, side)
-  
+
   def set_side(self, side):
     self.set_height(side)
     self.set_width(side)
 
   def __str__(self):
-    return "Square(side={0})".format(self.width)
+    return f"Square(side={self.width})"
